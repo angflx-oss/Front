@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CastsService} from './services/casts.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontEnd';
+  constructor(private cast:CastsService) {
+    this.cast.getData().subscribe(data => {
+      console.warn(data)
+    })
+  }
 }
